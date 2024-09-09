@@ -17,13 +17,13 @@ export default function Home({ spotifyData }: { spotifyData: SpotifyData }) {
             <Quote />
           </div>
         </div>
-        <h1 className="animate-bounce text-white text-7xl absolute transform bottom-10 -translate-x-1/2">VV</h1>
+        <h1 className="animate-bounce text-white text-7xl absolute transform bottom-2 -translate-x-1/2">VV</h1>
       </div>
       <div className="grid grid-cols-2 xl:grid-rows-4 sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-3 m-2">
         <div className="col-span-2 grid-row-2">
           <h1 className="text-5xl ml-10">Projects</h1>
           <a href="https://github.com/RaphielHS" className="ml-10 opacity-65 hover:opacity-100 animate-pulse hover:animate-none transition duration-200 delay-200 ease-in-out ">Github Projects</a>
-          <div className="p-10 m-10 grid xl:sm:grid-cols-4 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+          <div className="p-10 m-10">
             <Projects/>
           </div>
         </div>
