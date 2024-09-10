@@ -85,12 +85,13 @@ const SpotifyComponent = ({ data }: { data: SpotifyData }) => {
         }, 1000);
         return () => clearInterval(interval);
     }, [isPlaying, progress, time, progressElapsed, timestamp]);
+    // xl:w-52 lg:w-36 sm:w-20 md:w-40
     return (
         <a target='_blank'
             rel='noopener noreferer'
             href={isPlaying ? songUrl : 'https://open.spotify.com/'}
             className='flex items-center space-x-4 min-w-80'>
-            <div className='xl:w-52 lg:w-36 sm:w-36 sm:ml-10 md:w-40 rounded-3xl overflow-hidden shadow-sm'>
+            <div className='xl:w-52 md:w-52 sm:w-40 rounded-3xl overflow-hidden shadow-sm'>
                 {isPlaying ? (
                     <img
                         src={albumImageUrl}

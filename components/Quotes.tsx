@@ -20,7 +20,10 @@ const quotes = [
   "Happiness can be found even in the darkest of times if only one remembers to turn on the light.",
   "I feel on the verge of madness or greatness",
   "Our survival instinct is our greatest source of inspiration.",
-  "The greatest trick the devil ever pulled was convincing the world he didn't exist."
+  "The greatest trick the devil ever pulled was convincing the world he didn't exist.",
+  "Trust in the LORD with all your heart, and do not lean on your own understanding. In all your ways acknowledge him, and he will make straight your paths.",
+  "I can do all things through him who strengthens me.",
+  "The thief comes only to steal and kill and destroy. I came that they may have life and have it abundantly"
 ];
 
 const sources = [
@@ -30,7 +33,8 @@ const sources = [
   "The Godfather", "A Streetcar Named Desire",
   "North Star", "The Hunger Games", "Hitch",
   "Inception", "Little Women", "Harry Potter and The Prisoner of Azkaban",
-  "American Psycho", "Interstellar", "The Usual Suspect"
+  "American Psycho", "Interstellar", "The Usual Suspect", "Proverbs 3:5-6",
+  "Philippians 4:13", "John 10:10"
 ];
 
 const years = [
@@ -42,7 +46,7 @@ type QuoteData = {
   index: number;
   quote: string;
   source: string;
-  year: number;
+  // year: number;
 };
 
 const getRandomQuote = (): QuoteData => {
@@ -51,7 +55,7 @@ const getRandomQuote = (): QuoteData => {
     index: rand,
     quote: quotes[rand],
     source: sources[rand],
-    year: years[rand],
+    // year: years[rand],
   };
 };
 
@@ -70,7 +74,12 @@ const Quote = () => {
     <div className="mt-5">
       <h1 className="xl:text-3xl md:text-2xl sm:text-xl lg:text-3xl text-center max-w-100 text-white">{quoteData.quote}</h1>
       <p className="text-2xl mt-2 text-center bg-gradient-to-r from-blue-100 to-indigo-500 text-transparent bg-clip-text">
-        {quoteData.source} ({quoteData.year})
+        {/* {typeof(quoteData.year) === "number" ? (
+          <p>{quoteData.source} ({quoteData.year})</p>
+        ) : (
+          <p>{quoteData.source}</p>
+        )} */}
+        {quoteData.source}
       </p>
     </div>
   );

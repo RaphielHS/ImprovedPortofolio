@@ -12,14 +12,14 @@ export default function Home({ spotifyData }: { spotifyData: SpotifyData }) {
       <div className="flex items-center min-h-[calc(100dvh)] flex-col justify-between">
         <div className="z-10 w-full max-w-5xl m-10 items-center justify-between font-mono text-sm lg:flex">
           <div>
-            <Image src={Avatar} alt="Profile Picture" className="mx-auto mb-5 mt-10 grid rounded-full w-2/6" />
+            <Image src={Avatar} alt="Profile Picture" className="mx-auto mb-5 mt-2 grid rounded-full w-2/6" />
             <h1 className="text-6xl mt-2 text-center md:text-5xl sm:text-2lg bg-gradient-to-r from-blue-100 to-indigo-500 text-transparent bg-clip-text">RaphielHS</h1>
             <Quote />
           </div>
         </div>
         <h1 className="animate-bounce text-white text-7xl absolute transform bottom-2 -translate-x-1/2">VV</h1>
       </div>
-      <div className="grid grid-cols-2 xl:grid-rows-4 sm:grid-rows-3 md:grid-rows-2 lg:grid-rows-3 m-2">
+      <div className="grid grid-cols-2">
         <div className="col-span-2 grid-row-2">
           <h1 className="text-5xl ml-10">Projects</h1>
           <a href="https://github.com/RaphielHS" className="ml-10 opacity-65 hover:opacity-100 animate-pulse hover:animate-none transition duration-200 delay-200 ease-in-out ">Github Projects</a>
@@ -27,7 +27,9 @@ export default function Home({ spotifyData }: { spotifyData: SpotifyData }) {
             <Projects/>
           </div>
         </div>
-        <div className=" ml-10">
+      </div>
+      <div className="grid xl:grid-cols-2 sm:grid-cols-1">
+        <div className="ml-10 mr-10 mb-10">
           <h1 className="text-5xl lg:col-span-2 xl:col-span-2">Spotify Status</h1>
           <div className="mt-10 border rounded-lg flex justify-center items-center">
             <div className="m-4 flex items-center space-x-4 p-5 transition-shadow">
@@ -35,13 +37,12 @@ export default function Home({ spotifyData }: { spotifyData: SpotifyData }) {
             </div>
           </div>
         </div>
-        <div className="lg:grid-row-3 ml-10">
-          <h1 className="text-5xl lg:col-span-2 xl:col-span-2">Lyrics</h1>
-          <div className="mt-10 border rounded-lg flex justify-center items-center">
+        <div className="lg:grid-row-3 mr-10 mb-10 ml-10">
+          <h1 className="text-5xl lg:col-span-2 xl:col-span-2"></h1>
+          {/* <div className="mt-10 border rounded-lg flex justify-center items-center">
             <div className="m-4 flex items-center space-x-4 p-5 transition-shadow">
-              <h1>In Development</h1>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </main>
@@ -49,7 +50,7 @@ export default function Home({ spotifyData }: { spotifyData: SpotifyData }) {
 }
 
 export const getServerSideProps = async () => {
-  const res = await fetch(`http://localhost:3000/api/spotify`);
+  const res = await fetch(`${process.env.URL}/api/spotify`);
   let spotifyData: SpotifyData = await res.json().catch((err) => {
     console.error(err)
     return  {
@@ -68,7 +69,7 @@ export const getServerSideProps = async () => {
   });
   return {
     props: {
-      spotifyData,
+      spotifyData
     },
   };
 };

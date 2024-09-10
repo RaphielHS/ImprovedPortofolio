@@ -49,7 +49,7 @@ const Projects = () => {
       { /* @ts-ignore */ }
       {data.length > 0 ? ( // @ts-ignore
         data.map((project, index) => (
-          <div className="p-3 m-5 border border-white rounded-xl">
+          <div className="p-3 m-5 border border-white rounded-xl" key={index}>
             <h1 className="text-center md:text-2xl text-3xl">{project.name}</h1>
             {project.archived ? (
               <h1 className="text-center text-l -mt-1 mb-5 text-yellow-300">ARCHIVED</h1>
